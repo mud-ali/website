@@ -16,6 +16,7 @@ const config: Config = {
       colors: {
         'background-hue': '#1E293B',
         'accent-hue': '#B97375',
+        'accent-light': '#B9B9B1',
         'dark-tint': '#151C29',
         'text-hue': '#F4FAFF'
       },
