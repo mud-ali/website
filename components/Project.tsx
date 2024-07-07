@@ -5,11 +5,14 @@ import Image from "next/image"
 export function Project(info: Project): ReactNode {
     return (
         <div
-            className="w-11/12 mx-auto bg-slate-800 h-60 mt-8 mb-16 p-8 rounded-lg flex justify-around hover:shadow-[0px_0px_25px_4px_rgba(185,115,117,1)] duration-500"
+            className={
+                `w-11/12 mx-auto bg-slate-800 min-h-60 mt-8 mb-16 p-8 rounded-lg flex
+                justify-around hover:shadow-[0px_0px_25px_4px_rgba(185,115,117,1)] duration-300`
+            }
         >
             <div className="img-container flex justify-center items-center">
                 <Image
-                    className="w-2/3 h-2/3"
+                    className="w-2/3 aspect-auto"
                     src={info.icon}
                     alt={`Icon for project: ${info.name}`}
                 />
