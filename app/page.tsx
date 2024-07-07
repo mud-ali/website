@@ -1,6 +1,7 @@
 import { projectInfo } from "@/data/projectInfo"
 import { Project } from "@/components/Project"
 import { Header } from "@/components/Header"
+import { Footer } from "@/components/Footer"
 
 export default function Home() {
     return (
@@ -22,12 +23,7 @@ export default function Home() {
                     })}
                 </div>
 
-                <div id="footer" className="mt-32 mb-0">
-                    &copy; 2024 Mudasir Ali. Made <a
-                        href="https://www.github.com/mud-ali/website"
-                        className="text-accent-hue underline"
-                    >with ❤️</a>.
-                </div>
+                <Footer />
             </div>
         </main>
     )
