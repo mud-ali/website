@@ -16,10 +16,12 @@ const config: Config = {
       colors: {
         'background-hue': '#1B2A27',
         'accent-hue': '#B97375',
+        'accent-hue-dark': '#123A3B',
         'text-hue': '#F4FAFF'
       },
       fontFamily: {
-        quicksand: ['Quicksand', 'sans-serif']
+        quicksand: ['Quicksand', 'sans-serif'],
+        roboto: ['Roboto']
       }
     },
   },
