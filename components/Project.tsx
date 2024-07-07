@@ -4,7 +4,9 @@ import Image from "next/image"
 
 export function Project(info: Project): ReactNode {
     return (
-        <div className="w-11/12 mx-auto bg-slate-800 h-60 mt-8 mb-16 p-8 rounded-lg flex justify-around">
+        <div
+            className="w-11/12 mx-auto bg-slate-800 h-60 mt-8 mb-16 p-8 rounded-lg flex justify-around hover:shadow-lg duration-500 hover:shadow-accent-hue/40 transition-shadow"
+        >
             <div className="img-container flex justify-center items-center">
                 <Image
                     className="w-2/3 h-2/3"

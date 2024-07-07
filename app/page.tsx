@@ -8,7 +8,7 @@ export default function Home() {
     >
         <h1 className="text-6xl font-semibold mb-4">Mudasir Ali</h1>
 
-          <div className="min-h-[80vh] h-full bg-accent-hue-dark border-0 w-2/3 mt-16 py-8 rounded-lg shadow-2xl shadow-accent-hue">
+          <div className="min-h-[80vh] h-full bg-dark-tint border-0 w-2/3 mt-16 py-8 rounded-lg shadow-2xl shadow-accent-hue">
             <h2 className="block ml-12 text-4xl text-blue-300 underline font-roboto">
                 Projects
             </h2>
