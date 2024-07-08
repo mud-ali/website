@@ -6,7 +6,7 @@ export const headerLinkInfo : headerLinkProps[] = [
         display: "Home"
     },
     {
-        url: "#projects",
+        url: "/#projects",
         display: "Projects"
     },
     {
