@@ -6,7 +6,8 @@ export function ContactCard(info: ContactInfo): ReactNode {
     return (
         <div
             className={
-                `w-[11%] break-words flex-none bg-dark-tint aspect-square mx-4 mt-8 mb-16 p-1 rounded-full flex flex-col items-center
+                `w-3/5 sm:w-1/6 md:w-1/5 lg:1/12 xl:w-[13.5%] break-word flex-none bg-dark-tint aspect-square mx-4 mt-8 sm:mb-16 px-2 box-content
+                rounded-2xl flex flex-col items-center
                 justify-center hover:shadow-[0px_0px_5px_1px_rgba(185,185,177,1)] duration-300`
             }
         >
@@ -15,7 +16,7 @@ export function ContactCard(info: ContactInfo): ReactNode {
                     <Image className="w-full" src={info.imageLink} alt={info.info} />
                 </a>
             </div>
-            <div className="mt-4 w-5/6 pl-0 text-md text-center">
+            <div className="mt-8 sm:mt-4 text-md text-center break-all w-full">
                 {info.info}{info.url !== undefined && 
                     <a className="transition-colors duration-200 hover:text-accent-hue" href={info.url}>{info.urlText}</a>
                     }
