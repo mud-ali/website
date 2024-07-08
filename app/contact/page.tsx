@@ -13,7 +13,7 @@ export default function Contact() {
                 <div className="heading-card rounded-lg py-12 px-16 text-center mt-16 bg-dark-tint w-7/12 leading-loose">
                     Hi, I'm Mudasir, and I'm currently studying engineering at the Bergen County Academies in New Jersey. I'm passionate about everything from electrical engineering and robotics to web development and cybersecurity.
                 </div>
-                <div className="contact-card-array flex flex-row justify-center w-5/6">
+                <div className="contact-card-array flex flex-row justify-center w-screen mb-8">
                     {
                         contactMethodsInfo.map(method => {
                             return (

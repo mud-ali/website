@@ -20,6 +20,6 @@ export const contactMethodsInfo: ContactInfo[] = [
         info: "",
         imageLink: LinkedInIcon,
         url: "https://www.linkedin.com/in/mudasir-ali",
-        urlText: "in/mudasir-ali"
+        urlText: "mudasir-ali"
     }
 ]
