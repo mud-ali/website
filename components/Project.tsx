@@ -2,6 +2,21 @@ import type { Project } from "@/types/project";
 import { ReactNode } from "react";
 import Image from "next/image"
 
+function parseUrls(raw: string) : string {
+    let htmlOutput = ""
+    const wordList = raw.split(" ")
+
+    for (let word of wordList) {
+        // remove () [] {} / and $ from the word and see if it starts like a link
+        if (!word.replaceAll(/(\(|\)|\[|\]|\/|\$|\{|\})/gmi,"").startsWith("http")) {
+            htmlOutput += word + " "
+        } else {
+            htmlOutput += `<a href="${word}"> ${word} </a>`
+        }
+    }
+    return htmlOutput
+}
+
 export function Project(info: Project): ReactNode {
     return (
         <div
@@ -16,6 +31,8 @@ export function Project(info: Project): ReactNode {
                     className="w-1/3 sm:w-2/3 aspect-auto mb-6 sm:mb-0"
                     src={info.icon}
                     alt={`Icon for project: ${info.name}`}
+                    height={225}
+                    width={225}
                 />
             </div>
             <div className="w-full sm:p-4 py-4 px-2">
@@ -27,9 +44,9 @@ export function Project(info: Project): ReactNode {
                         {info.when}
                     </div>
                 </div>
-                <div className="mt-[1rem] sm:text-left text-center break-words">
-                    {info.desc}
-                </div>
+                <div
+                    className="mt-[1rem] sm:text-left text-center break-words"
+                    dangerouslySetInnerHTML={{ __html: parseUrls(info.desc) }}></div>
             </div>
         </div>
     )
