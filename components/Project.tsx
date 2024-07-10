@@ -12,7 +12,7 @@ function parseUrls(raw: string) : string {
         if (!cleaned.startsWith("http")) {
             htmlOutput += word + " "
         } else {
-            htmlOutput += word.replace(cleaned, `<a href="${cleaned}">${cleaned}</a>`)
+            htmlOutput += word.replace(cleaned, `<a href="${cleaned}" class="content">${cleaned}</a>`)
         }
     }
     return htmlOutput.trim()
