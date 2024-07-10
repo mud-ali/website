@@ -7,14 +7,15 @@ function parseUrls(raw: string) : string {
     const wordList = raw.split(" ")
 
     for (let word of wordList) {
-        // remove () [] {} / and $ from the word and see if it starts like a link
-        if (!word.replaceAll(/(\(|\)|\[|\]|\/|\$|\{|\})/gmi,"").startsWith("http")) {
+        // remove () [] {} $ from the word and see if it starts like a link
+        let cleaned = word.replaceAll(/(\(|\)|\[|\]|\$|\{|\})/gmi, "")
+        if (!cleaned.startsWith("http")) {
             htmlOutput += word + " "
         } else {
-            htmlOutput += `<a href="${word}"> ${word} </a>`
+            htmlOutput += word.replace(cleaned, `<a href="${cleaned}">${cleaned}</a>`)
         }
     }
-    return htmlOutput
+    return htmlOutput.trim()
 }
 
 export function Project(info: Project): ReactNode {
