@@ -27,13 +27,13 @@ export function Project(info: Project): ReactNode {
                 justify-around hover:shadow-[0px_0px_25px_4px_rgba(185,115,117,1)] duration-300`
             }
         >
-            <div className="img-container flex justify-center items-center">
+            <div className="w-1/5 img-container flex justify-center items-center">
                 <Image
-                    className="w-1/3 sm:w-2/3 aspect-auto mb-6 sm:mb-0"
+                    className="w-1/3 sm:w-full aspect-auto mb-6 sm:mb-0"
                     src={info.icon}
                     alt={`Icon for project: ${info.name}`}
-                    height={225}
-                    width={225}
+                    height={500}
+                    width={500}
                 />
             </div>
             <div className="w-full sm:p-4 py-4 px-2">
