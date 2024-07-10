@@ -9,7 +9,7 @@ export default function Home() {
             className="min-h-screen h-full bg-background-hue font-quicksand text-text-hue"
         >
             <Header />
-            <div className="content flex flex-col items-center justify-between md:px-32 pt-24 pb-4">
+            <div className="content flex flex-col items-center justify-between md:px-32 pt-20 md:pt-24 pb-4">
                 <h1 className="text-6xl font-semibold mb-4">Mudasir Ali</h1>
 
                 <h2 className="block md:ml-12 mt-20 text-4xl uppercase text-blue-300 font-roboto text-center md:text-left w-2/3" id="projects">
