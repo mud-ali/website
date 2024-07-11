@@ -1,7 +1,7 @@
 import { Footer } from "@/components/Footer"
 import { Header } from "@/components/Header"
 
-export default function Contact() {
+export default function Resume() {
     return (
         <main
             className="min-h-screen h-full bg-background-hue font-quicksand text-text-hue"
