@@ -4,8 +4,14 @@ import BCACTFV from "@/assets/BCACTF_V.png"
 import Titanium from "@/assets/titaniumknights.png"
 import NextJS from "@/assets/nextjs.png"
 import Tailwind from "@/assets/tailwind.svg"
-import Java from "@/assets/java.png"
+import Java from "@/assets/java.svg"
 import Kotlin from "@/assets/kotlin.png"
+import Roadrunner from "@/assets/roadrunner.png"
+import OpenCV from "@/assets/OpenCV.png"
+import Docker from "@/assets/docker.svg"
+import Git from "@/assets/git.svg"
+import Python from "@/assets/python.svg"
+import Rust from "@/assets/rust.svg"
 
 export const projectInfo : Project[] = [
     {
@@ -13,7 +19,9 @@ export const projectInfo : Project[] = [
         desc: "Wrote CTF (capture the flag) challenges for BCACTF 5.0, my high school CTF club's annual cybersecurity competition. As president of the club, I also managed and reviewed other challenge authors' problems to ensure that they were solvable and fun. In addition, I worked with other administrators to secure sponsorships, deploy infrastructure, and respond to support tickets in a timely manner. <br /> <br /> Special thanks to Google Cloud (https://cloud.google.com/ ), Binary Ninja (https://binary.ninja/ ), TryHackMe (https://tryhackme.com/ ), and the New Jersey Cybersecurity and Communications Integration Cell (https://www.cyber.nj.gov/home-njccic ) for sponsoring this event.",
         icon: BCACTFV,
         when: "June 7th - June 10th, 2024",
-        url: ["https://github.com/BCACTF/bcactf-5.0", "https://5.bcactf.com/"]
+        url: ["https://github.com/BCACTF/bcactf-5.0", "https://5.bcactf.com/"],
+        tech: [Docker, Git, Python, Rust],
+        techTitle: ["Docker", "Git", "Python", "Java", "Rust"]
     },
     {
         name: "First Tech Challenge - Centerstage",
@@ -21,7 +29,8 @@ export const projectInfo : Project[] = [
         icon: Titanium,
         when: "September 9th, 2023 - February 25th, 2024",
         url: ["https://github.com/titanium-knights/knightmares-centerstage-2023", "https://github.com/titanium-knights/knightmares-centerstage-2024"],
-        tech: [Java, Kotlin]
+        tech: [Java, Kotlin, Roadrunner, OpenCV],
+        techTitle: ["Java", "Kotlin", "Roadrunner", "OpenCV"]
     },
     {
         name: "Website",

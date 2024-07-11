@@ -4,5 +4,8 @@ export type Project = {
     name: string,
     desc: string,
     icon: StaticImageData,
-    when: string 
+    when: string,
+    url?: string[],
+    tech?: StaticImageData[],
+    techTitle?: string[]
 }

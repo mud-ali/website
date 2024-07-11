@@ -48,7 +48,7 @@ export function Project(info: Project): ReactNode {
                     dangerouslySetInnerHTML={{ __html: parseUrls(info.desc) }}>
                 </div>
 
-                <div className="flex w-1/3 ml-24 flex-row justify-left items-center mt-8 mb-4 border-0 border-red-600">
+                <div className="flex w-1/3 min-w-max mx-0 flex-row justify-left items-center mt-8 mb-4 border-0 border-red-600">
                     {
                         info.tech?.map((imageInfo, i)=>{
                             return (
@@ -58,7 +58,7 @@ export function Project(info: Project): ReactNode {
                                     alt={info.techTitle?.at(i) ?? ""}
                                     height={30}
                                     width={30}
-                                    className={`mx-4`}
+                                    className={`mx-4 border-0 border-green-400`}
                                 />
                             )
                         })
