@@ -6,15 +6,15 @@ export const headerLinkInfo : headerLinkProps[] = [
         display: "Home"
     },
     {
-        url: "/#projects",
+        url: "/projects",
         display: "Projects"
     },
     {
         url: "/resume",
         display: "Resume"
     },
-    {
-        url: "/contact",
-        display: "Contact"
-    }
+    // {
+    //     url: "/blog",
+    //     display: "Blog"
+    // }
 ]
