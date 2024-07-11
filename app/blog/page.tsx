@@ -6,10 +6,10 @@ import { PostPreview } from "@/components/PostPreview"
 
 export default function Blog() : ReactNode {
     return (
-        <main className="min-h-screen h-full bg-background-hue font-quicksand text-text-hue">
+        <main className="min-h-screen h-full bg-background-hue font-head text-text-hue">
             <Header />
             <div id="top" className="text-center my-24">
-                <h1 className="text-3xl mb-4 font-extrabold font-roboto">
+                <h1 className="text-3xl mb-4 font-extrabold font-body">
                     Blog
                 </h1>
                 <p>

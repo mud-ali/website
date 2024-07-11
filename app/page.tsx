@@ -6,7 +6,7 @@ import { Footer } from "@/components/Footer"
 export default function Home() {
     return (
         <main
-            className="min-h-screen h-full bg-background-hue font-quicksand text-text-hue"
+            className="min-h-screen h-full bg-background-hue font-head text-text-hue"
         >
             <Header />
             <div className="content flex flex-col items-center justify-between md:px-32 pt-20 md:pt-24 pb-4">

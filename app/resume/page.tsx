@@ -4,7 +4,7 @@ import { Header } from "@/components/Header"
 export default function Resume() {
     return (
         <main
-            className="min-h-screen h-full bg-background-hue font-quicksand text-text-hue"
+            className="min-h-screen h-full bg-background-hue font-head text-text-hue"
         >
             <Header />
             <div className="content px-6 sm:mt-16 h-screen">

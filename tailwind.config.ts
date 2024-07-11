@@ -21,8 +21,8 @@ const config: Config = {
         'text-hue': '#F4FAFF'
       },
       fontFamily: {
-        quicksand: ['Quicksand', 'sans-serif'],
-        roboto: ['Roboto']
+        head: ['Karla'],
+        body: ['Inconsolata'],
       }
     },
   },
