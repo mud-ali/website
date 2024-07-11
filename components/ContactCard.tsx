@@ -11,7 +11,7 @@ export function ContactCard(info: ContactInfo): ReactNode {
             }
         >
             <div className="w-full mx-auto text-center transition-all hover:w-10/12 duration-200" >
-                <a href={info.url} title={info.urlText}>
+                <a href={info.url} title={info.urlText} target="_blank">
                     <Image className="w-full" src={info.imageLink} alt={info.info} />
                 </a>
             </div>
