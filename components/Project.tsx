@@ -22,7 +22,7 @@ export function Project(info: Project): ReactNode {
     return (
         <div
             className={
-                `w-11/12 mx-auto bg-slate-800 min-h-60 mt-8 mb-4 sm:mb-16 p-8 rounded-lg flex
+                `w-11/12 mx-auto bg-slate-800 min-h-60 mt-8 mb-4 sm:mb-16 px-8 py-8 rounded-lg flex
                 flex-col lg:flex-row
                 justify-around hover:shadow-[0px_0px_25px_4px_rgba(185,115,117,1)] duration-300`
             }
@@ -34,7 +34,7 @@ export function Project(info: Project): ReactNode {
                     alt={`Icon for project: ${info.name}`}
                 />
             </div>
-            <div className="w-full sm:p-4 py-4 px-2">
+            <div className="w-full sm:p-4 pt-4 sm:pb-0 px-2 border-0 border-red-600 flex flex-col justify-between">
                 <div className="top flex w-full justify-between mb-6 sm:mb-0">
                     <div className="w-1/2 text-left sm:w-full">
                         {info.name}
@@ -45,7 +45,25 @@ export function Project(info: Project): ReactNode {
                 </div>
                 <div
                     className="mt-[1rem] sm:text-left text-center break-words"
-                    dangerouslySetInnerHTML={{ __html: parseUrls(info.desc) }}></div>
+                    dangerouslySetInnerHTML={{ __html: parseUrls(info.desc) }}>
+                </div>
+
+                <div className="flex w-1/3 ml-24 flex-row justify-left items-center mt-8 mb-4 border-0 border-red-600">
+                    {
+                        info.tech?.map((imageInfo, i)=>{
+                            return (
+                                <Image
+                                    src={imageInfo}
+                                    title={info.techTitle?.at(i) ?? ""}
+                                    alt={info.techTitle?.at(i) ?? ""}
+                                    height={30}
+                                    width={30}
+                                    className={`mx-4`}
+                                />
+                            )
+                        })
+                    }
+                </div>
             </div>
         </div>
     )
