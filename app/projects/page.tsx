@@ -13,7 +13,7 @@ export default function Home() {
                 <h2 className="lg:block lg:ml-12 mt-8 text-4xl uppercase text-blue-300 font-body text-center lg:text-left w-2/3" id="projects">
                     Projects
                 </h2>
-                <div className={`sm:min-h-[80vh] h-full bg-dark-tint border-0 w-full lg:w-2/3 mt-4 pt-4 sm:py-8
+                <div className={`sm:min-h-[80vh] h-full bg-dark-tint border-0 w-full lg:w-2/3 my-4 pt-4 sm:py-8
                                 rounded-md md:rounded-lg shadow-0 shadow-accent-hue`}>
                     {projectInfo.map(proj => {
                         return (
