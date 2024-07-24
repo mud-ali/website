@@ -5,7 +5,7 @@ export type Project = {
     desc: string,
     icon: StaticImageData,
     when: string,
-    url?: string[],
+    url: string[][],
     tech?: StaticImageData[],
     techTitle?: string[]
 }
