@@ -48,7 +48,7 @@ export function Project(info: Project): ReactNode {
                     dangerouslySetInnerHTML={{ __html: parseUrls(info.desc) }}>
                 </div>
 
-                <div className="flex w-1/3 min-w-max mx-0 flex-row justify-left items-center mt-8 mb-4 border-0 border-red-600">
+                <div className="flex w-1/3 min-w-max mx-0 flex-row justify-left items-center mt-8 mb-2 border-0 border-red-600">
                     {
                         info.tech?.map((imageInfo, i)=>{
                             return (
@@ -58,11 +58,27 @@ export function Project(info: Project): ReactNode {
                                     alt={info.techTitle?.at(i) ?? ""}
                                     height={30}
                                     width={30}
-                                    className={`mx-4 border-0 border-green-400`}
+                                    className={`mx-3 border-0 border-green-400`}
                                 />
                             )
                         })
                     }
+                </div>
+                <div className="my-4 flex justify-start border-0 border-red-300">
+                    {info.url.map((url, i) => {
+                        return (
+                            <a
+                                key={i}
+                                href={url[0]}
+                                target="_blank"
+                                className={`inline-block rounded-2xl bg-slate-700 px-3 py-1 text-blue-300 mx-2 hover:underline underline-offset-4
+                                          hover:text-accent-hue hover:bg-slate-900 transition-colors duration-300`}
+                            >
+                                {url[1]}
+                            </a>
+                        )
+                    })}
+
                 </div>
             </div>
         </div>
