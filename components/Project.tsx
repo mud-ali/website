@@ -72,7 +72,7 @@ export function Project(info: Project): ReactNode {
                                 href={url[0]}
                                 target="_blank"
                                 className={`inline-block rounded-2xl bg-slate-700 px-3 py-1 text-blue-300 mx-2 hover:underline underline-offset-4
-                                          hover:text-accent-hue hover:bg-slate-900 transition-colors duration-300`}
+                                          hover:text-white hover:bg-slate-900 transition-colors duration-300`}
                             >
                                 {url[1]}
                             </a>

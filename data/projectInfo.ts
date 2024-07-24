@@ -1,6 +1,7 @@
 import type { Project } from "@/types/project"
 import GithubLogo from "@/assets/github.png"
 import BCACTFV from "@/assets/BCACTF_V.png"
+import BCACTFIV from "@/assets/BCACTF_IV.png"
 import Titanium from "@/assets/titaniumknights.png"
 import NextJS from "@/assets/nextjs.png"
 import Tailwind from "@/assets/tailwind.svg"
@@ -14,8 +15,23 @@ import Python from "@/assets/python.svg"
 import Rust from "@/assets/rust.svg"
 import Node from "@/assets/node.svg"
 import Postgres from "@/assets/postgre.svg"
+import Inventor from "@/assets/inventor.svg"
+import Javascript from "@/assets/javascript.svg"
+import ReactLogo from "@/assets/react.svg"
+import Chrome from "@/assets/chrome.svg"
+import Firefox from "@/assets/firefox.svg"
+import Handlebars from "@/assets/hbs.svg"
 
 export const projectInfo : Project[] = [
+    {
+        name: "BCA NewTab",
+        desc: "A browser extension that scrapes the PowerSchool Student Information System used at BCA to create a custom schedule page on the user's new tab.",
+        icon: GithubLogo,
+        when: "09/09/2024 - Present",
+        url: [],
+        tech: [Node, Javascript, Handlebars, Firefox, Chrome],
+        techTitle: ["NodeJS", "JavaScript", "Handlebars", "Firefox Addons API", "Chrome Extensions API"]
+    },
     {
         name: "BCACTF 5.0",
         desc: "Wrote CTF (capture the flag) challenges for BCACTF 5.0, my high school CTF club's annual cybersecurity competition. As president of the club, I also managed and reviewed other challenge authors' problems to ensure that they were solvable and fun. In addition, I worked with other administrators to secure sponsorships, deploy infrastructure, and respond to support tickets in a timely manner.",
@@ -35,13 +51,31 @@ export const projectInfo : Project[] = [
         techTitle: ["Java", "Kotlin", "Roadrunner", "OpenCV"]
     },
     {
+        name: "Recoursive Website",
+        desc: "As Co-Webmaster of Recoursive, an organization dedicated to providing free computer science education at local community centers, I worked to design a website to showcase the programs offered by the organization, increasing outreach to community centers and libraries.",
+        icon: GithubLogo,
+        when: "08/08/2023 - 06/21/2024",
+        url: [["https://recoursivetutoring.vercel.app/", "Live Site"],["https://github.com/recoursivetutoring/website", "Source"]],
+        tech: [Node, Javascript, ReactLogo],
+        techTitle: ["NodeJS", "JavaScript", "React"]
+    },
+    {
+        name: "BCACTF 4.0",
+        desc: "Wrote CTF (capture the flag) challenges for BCACTF 4.0, my high school CTF club's annual cybersecurity competition. I also worked with administrators to respond to support requests and deploy infrastructure.",
+        icon: BCACTFIV,
+        when: "06/09/2023 - 06/12/2023",
+        url: [["https://github.com/BCACTF/bcactf-4.0", "Source"], ["https://4.bcactf.com/", "Landing Page"]],
+        tech: [Git, Python, Java, Javascript, Docker],
+        techTitle: ["Git", "Python", "Java", "JavaScript", "Docker"]
+    },
+    {
         name: "First Tech Challenge - Powerplay",
-        desc: "As a member of the Titanium Knights A (15887) team, I worked with the build and programming subteams for the 2022-2023 Powerplay<sup>®</sup> challenge, learning about FIRST and robotics in general.",
+        desc: "As a member of the Titanium Knights A (15887) team, I worked with the build and programming subteams for the 2022-2023 Powerplay<sup>®</sup> challenge, gaining experience in various aspects of robotics.",
         icon: Titanium,
-        when: "09/20/2022 - 03/12/2024",
+        when: "09/20/2022 - 03/12/2023",
         url: [["https://drive.google.com/file/d/1CWHDXrx_E4XXwPtvRncYPMWOEFyYqSBa/view?usp=drive_link", "Render"], ["https://drive.google.com/file/d/1gCX30wZU4HCbwMdHRrbLLThYUo9kNl3G/view?usp=drive_link","Picture"], ["https://github.com/titanium-knights/team-a-2022-2023","Code"]],
-        tech: [Java, Kotlin, Roadrunner, OpenCV],
-        techTitle: ["Java", "Kotlin", "Roadrunner", "OpenCV"]
+        tech: [Inventor, Java, Roadrunner],
+        techTitle: ["Autodesk Inventor Professional", "Java", "Roadrunner", ]
     },
     {
         name: "Personal Website",
