@@ -3,5 +3,5 @@ export type Blogpost = {
     description: string,
     url: string,
     date: Date | string,
-    tags?: string[]
+    tags: string[]
 }
