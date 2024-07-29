@@ -8,15 +8,15 @@ export default function Blog() : ReactNode {
     return (
         <main className="min-h-screen h-full bg-background-hue font-head text-text-hue">
             <Header />
-            <div id="top" className="text-center my-24">
+            <div id="top" className="text-center mt-24 mb-12">
                 <h1 className="text-3xl mb-4 font-extrabold font-body">
                     Blog
                 </h1>
                 <p>
-                    CTF writeups, mainly.
+                    CTF writeups. thoughts.
                 </p>
             </div>
-            <div className="blog-preview-container bg-dark-tint min-h-screen w-5/6 mx-auto rounded-xl">
+            <div className="blog-preview-container min-h-screen w-3/6 mx-auto rounded-xl">
                 {
                     blogPostsList.map((postData, i)=>{
                         return (
@@ -28,4 +28,4 @@ export default function Blog() : ReactNode {
             <Footer />
         </main>
     )
-}
+} 

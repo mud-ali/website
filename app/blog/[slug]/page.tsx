@@ -2,6 +2,7 @@ import { Header } from "@/components/Header"
 import { Footer } from "@/components/Footer"
 import { ReactNode } from "react"
 import { blogPostsList } from "@/data/blogPostsList"
+import BlogPost from "@/components/BlogPost"
 
 export default function Blog({ params }: { params: { slug: string } }): ReactNode {
     for (let i=0;i<blogPostsList.length;i++) {
@@ -9,14 +10,7 @@ export default function Blog({ params }: { params: { slug: string } }): ReactNod
             return (
                 <main className="min-h-screen h-full bg-background-hue font-head text-text-hue">
                     <Header />
-                    <div id="top" className="text-center my-24">
-                        <h1 className="text-3xl mb-4 font-extrabold font-body text-white">
-                            {blogPostsList[i].title}
-                        </h1>
-                        <p>
-                            {blogPostsList[i].description}
-                        </p>
-                    </div>
+                        <BlogPost {...blogPostsList[i]}/>
                     <Footer />
                 </main>
             )

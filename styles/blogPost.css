@@ -1,0 +1,20 @@
+.mdx-container * {
+    margin-bottom: 1rem;
+}
+
+.mdx-container pre:has(code) {
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+}
+
+.mdx-container h1 {
+    @apply text-4xl font-bold
+}
+
+.mdx-container h2 {
+    @apply text-2xl
+}
+
+.mdx-container h3 {
+    @apply text-xl
+}
