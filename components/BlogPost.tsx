@@ -1,10 +1,10 @@
 import { Blogpost } from "@/types/blogpost";
-import { promises as fs } from "fs";
-import { cwd } from "process";
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import rehypeHighlight from 'rehype-highlight';
 import "@/styles/blogPost.css"
 import "@/styles/highlight-js/github-dark.css"
+import path from "path"
+import fs from "fs";
 
 const options = {
     mdxOptions: {
@@ -16,9 +16,11 @@ const options = {
 export default async function BlogPost(post: Blogpost) {
     let content;
     try {
-        content = await fs.readFile(`${cwd()}/data/posts/${post.content}`, {encoding: 'utf8'});
+        let filePath = path.join(process.cwd(), `/data/posts/${post.content}`)
+        content = fs.readFileSync(filePath);
     } catch (err) {
-        content = post.content
+        console.error(err);
+        content = post.content;
     }
 
     return (
