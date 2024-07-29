@@ -79,10 +79,10 @@ export const projectInfo : Project[] = [
     },
     {
         name: "Personal Website",
-        desc: "Designed personal website using NextJS and TailwindCSS. For more information, check out the source code on github: https://github.com/mud-ali/website .",
+        desc: "Designed personal website using NextJS and TailwindCSS. Implemented blog feature from scratch using MDX. Check out the source below or check out the other pages on this site.",
         icon: GithubLogo,
         when: "07/07/2024 - Present",
-        url: [],
+        url: [["https://www.github.com/mud-ali", "Source"], ["https://mudasir.vercel.app/", "Homepage"]],
         tech: [Node, NextJS, Tailwind],
         techTitle: ["NodeJS", "NextJS", "TailwindCSS"]
     },
