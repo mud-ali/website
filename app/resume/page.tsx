@@ -7,10 +7,10 @@ export default function Resume() {
             className="min-h-screen h-full bg-background-hue font-head text-text-hue"
         >
             <Header />
-            <div className="content px-6 sm:mt-16 h-screen mb-4">
+            <div className="content px-6 sm:mt-16 h-screen mb-4 w-full">
                 <iframe
                     src="/Resume.pdf"
-                    className={`w-2/3 h-full mx-auto rounded-2xl shadow-[0px_0px_5px_1px_rgba(185,185,177,1)]
+                    className={`w-11/12 lg:w-2/3 h-2/3 md:h-full mx-auto rounded-2xl shadow-[0px_0px_5px_1px_rgba(185,185,177,1)]
                                 hover:shadow-[0px_0px_10px_5px_rgba(195,185,177,1)] duration-500`}
                 >
                 </iframe>

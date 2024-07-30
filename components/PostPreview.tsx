@@ -6,7 +6,7 @@ export function PostPreview(info: Blogpost): ReactNode {
     return (
         <div
             className={
-                `w-full break-word mx-auto my-8 p-8 box-content flex
+                `w-full break-word mx-auto my-8 p-8 box-border flex
                 flex-col items-center justify-center rounded-xl
                 bg-dark-tint`
             }

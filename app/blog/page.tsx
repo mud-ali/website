@@ -16,7 +16,7 @@ export default function Blog() : ReactNode {
                     CTF writeups. thoughts.
                 </p>
             </div>
-            <div className="blog-preview-container min-h-screen w-3/6 mx-auto rounded-xl">
+            <div className="blog-preview-container min-h-screen w-5/6 lg:w-3/6 mx-auto rounded-xl">
                 {
                     blogPostsList.map((postData, i)=>{
                         return (
