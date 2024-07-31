@@ -37,7 +37,7 @@ export const projectInfo : Project[] = [
     },
     {
         name: "BCACTF 5.0",
-        desc: "Wrote CTF (capture the flag) challenges for BCACTF 5.0, my high school CTF club's annual cybersecurity competition. As president of the club, I also managed and reviewed other challenge authors' problems to ensure that they were solvable and fun. In addition, I worked with other administrators to secure sponsorships, deploy infrastructure, and respond to support tickets in a timely manner.",
+        desc: "Wrote CTF (capture the flag) challenges for BCACTF 5.0, my high school CTF club's annual cybersecurity competition. As president of the club, I also managed and reviewed other challenge authors' problems to ensure that they were solvable and fun. In addition, I worked with other administrators to secure sponsorships, deploy infrastructure, and respond to support tickets in a timely manner. <br/> <br/> We had over 2000 registered participants and over 800 teams that scored points.",
         icon: BCACTFV,
         when: "06/07/2024 - 06/10/2024",
         url: [["https://github.com/BCACTF/bcactf-5.0", "Source"], ["https://5.bcactf.com/", "Landing Page"]],
@@ -46,7 +46,7 @@ export const projectInfo : Project[] = [
     },
     {
         name: "First Tech Challenge - Centerstage",
-        desc: "As a member of the Knightmare Robotics (15891) team, I co-led the programming subteam for the 2023-2024 Centerstage<sup>®</sup> challenge. I independently designed and tuned a computer vision algorithm using OpenCV to detect the location of a landmark object, affecting the autonomous path chosen by the robot. In addition, I worked with other programmers to tune the PID control system used by the drivetrain for accurate autonomous movement. <br><br>I also delivered lessons on PID using the Road Runner library and about the basics of the FTC SDK. Finally, I also made contributions to the team's website and outreach initiatives.",
+        desc: "As a member of the Knightmare Robotics (15891) team, I co-led the programming subteam for the 2023-2024 Centerstage<sup>®</sup> challenge. I independently designed and tuned a computer vision algorithm using OpenCV to detect the location of a landmark object, affecting the autonomous path chosen by the robot. In addition, I worked with other programmers to tune the PID control system used by the drivetrain for accurate autonomous movement. <br><br>I also delivered lessons on PID using the Road Runner library and about the basics of the FTC SDK. Finally, I also made contributions to the team's website and outreach initiatives. Won 2nd place Think Award at Leagues. I was also one of the team's two nominated Dean's List semifinalists.",
         icon: Titanium,
         when: "09/09/2023 - 02/25/2024",
         url: [["https://github.com/titanium-knights/knightmares-centerstage-2023", "Early Season Source"], ["https://github.com/titanium-knights/knightmares-centerstage-2024", "Final Robot Source"], ["https://titanium-knights.github.io", "Team Website"]],
@@ -82,7 +82,7 @@ export const projectInfo : Project[] = [
     },
     {
         name: "First Tech Challenge - Powerplay",
-        desc: "As a member of the Titanium Knights A (15887) team, I worked with the build and programming subteams for the 2022-2023 Powerplay<sup>®</sup> challenge, gaining experience in various aspects of robotics.",
+        desc: "As a member of the Titanium Knights A (15887) team, I worked with the build and programming subteams for the 2022-2023 Powerplay<sup>®</sup> challenge, gaining experience in various aspects of robotics. <br/> <br/> Won Inspire Award at Leagues and 2nd place Motivate Award at States.",
         icon: Titanium,
         when: "09/20/2022 - 03/12/2023",
         url: [["https://drive.google.com/file/d/1CWHDXrx_E4XXwPtvRncYPMWOEFyYqSBa/view?usp=drive_link", "Render"], ["https://drive.google.com/file/d/1gCX30wZU4HCbwMdHRrbLLThYUo9kNl3G/view?usp=drive_link","Picture"], ["https://github.com/titanium-knights/team-a-2022-2023","Code"]],
