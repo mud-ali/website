@@ -1,3 +1,3 @@
 # Mudasir Ali
 
-Website
+Personal Website using NextJS, TailwindCSS, and MDX.
