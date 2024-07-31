@@ -23,12 +23,13 @@ import Firefox from "@/assets/firefox.svg"
 import Handlebars from "@/assets/hbs.svg"
 import MDXLogo from "@/assets/mdx.svg"
 import AcadSciLogo from "@/assets/acadsci.png"
+import NewTabExt from "@/assets/newtab.png"
 
 export const projectInfo : Project[] = [
     {
         name: "BCA NewTab",
         desc: "A browser extension that scrapes the PowerSchool Student Information System used at BCA to create a custom schedule page on the user's new tab.",
-        icon: GithubLogo,
+        icon: NewTabExt,
         when: "07/09/2024 - Present",
         url: [],
         tech: [Node, Javascript, Handlebars, Firefox, Chrome],
@@ -55,7 +56,7 @@ export const projectInfo : Project[] = [
     {
         name: "Academy Scientific Website",
         desc: "A website to display scientific articles published by the Academy Scientific, the only scientific journal at the Bergen County Academies.",
-        icon: GithubLogo,
+        icon: AcadSciLogo,
         when: "01/23/2024 - Present",
         url: [["https://academyscientific.vercel.app/", "Website"]],
         tech: [NextJS, Node, Tailwind, MDXLogo],
