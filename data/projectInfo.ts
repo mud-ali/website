@@ -1,29 +1,31 @@
-import type { Project } from "@/types/project"
-import GithubLogo from "@/assets/github.png"
-import BCACTFV from "@/assets/BCACTF_V.png"
 import BCACTFIV from "@/assets/BCACTF_IV.png"
-import Titanium from "@/assets/titaniumknights.png"
-import NextJS from "@/assets/nextjs.png"
-import Tailwind from "@/assets/tailwind.svg"
-import Java from "@/assets/java.svg"
-import Kotlin from "@/assets/kotlin.png"
-import Roadrunner from "@/assets/roadrunner.png"
+import BCACTFV from "@/assets/BCACTF_V.png"
 import OpenCV from "@/assets/OpenCV.png"
+import AcadSciLogo from "@/assets/acadsci.png"
+import Chrome from "@/assets/chrome.svg"
+import CSSLogo from "@/assets/css.svg"
 import Docker from "@/assets/docker.svg"
+import Firefox from "@/assets/firefox.svg"
 import Git from "@/assets/git.svg"
-import Python from "@/assets/python.svg"
-import Rust from "@/assets/rust.svg"
+import GithubLogo from "@/assets/github.png"
+import Handlebars from "@/assets/hbs.svg"
+import Inventor from "@/assets/inventor.svg"
+import Java from "@/assets/java.svg"
+import Javascript from "@/assets/javascript.svg"
+import Kotlin from "@/assets/kotlin.png"
+import MDXLogo from "@/assets/mdx.svg"
+import NewTabExt from "@/assets/newtab.png"
+import NextJS from "@/assets/nextjs.png"
 import Node from "@/assets/node.svg"
 import Postgres from "@/assets/postgre.svg"
-import Inventor from "@/assets/inventor.svg"
-import Javascript from "@/assets/javascript.svg"
+import Python from "@/assets/python.svg"
 import ReactLogo from "@/assets/react.svg"
-import Chrome from "@/assets/chrome.svg"
-import Firefox from "@/assets/firefox.svg"
-import Handlebars from "@/assets/hbs.svg"
-import MDXLogo from "@/assets/mdx.svg"
-import AcadSciLogo from "@/assets/acadsci.png"
-import NewTabExt from "@/assets/newtab.png"
+import Recoursive from "@/assets/recoursive.png"
+import Roadrunner from "@/assets/roadrunner.png"
+import Rust from "@/assets/rust.svg"
+import Tailwind from "@/assets/tailwind.svg"
+import Titanium from "@/assets/titaniumknights.png"
+import type { Project } from "@/types/project"
 
 export const projectInfo : Project[] = [
     {
@@ -37,7 +39,7 @@ export const projectInfo : Project[] = [
     },
     {
         name: "BCACTF 5.0",
-        desc: "Wrote CTF (capture the flag) challenges for BCACTF 5.0, my high school CTF club's annual cybersecurity competition. As president of the club, I also managed and reviewed other challenge authors' problems to ensure that they were solvable and fun. In addition, I worked with other administrators to secure sponsorships, deploy infrastructure, and respond to support tickets in a timely manner. <br/> <br/> We had over 2000 registered participants and over 800 teams that scored points.",
+        desc: "Problem Writer and Admin for BCACTF 5.0, my high school CTF (capture the flag) club's annual cybersecurity competition. <br/> <br/> We had over 2000 registered participants and over 800 teams that scored points.",
         icon: BCACTFV,
         when: "06/07/2024 - 06/10/2024",
         url: [["https://github.com/BCACTF/bcactf-5.0", "Source"], ["https://5.bcactf.com/", "Landing Page"]],
@@ -46,7 +48,7 @@ export const projectInfo : Project[] = [
     },
     {
         name: "First Tech Challenge - Centerstage",
-        desc: "As a member of the Knightmare Robotics (15891) team, I co-led the programming subteam for the 2023-2024 Centerstage<sup>®</sup> challenge. I independently designed and tuned a computer vision algorithm using OpenCV to detect the location of a landmark object, affecting the autonomous path chosen by the robot. In addition, I worked with other programmers to tune the PID control system used by the drivetrain for accurate autonomous movement. <br><br>I also delivered lessons on PID using the Road Runner library and about the basics of the FTC SDK. Finally, I also made contributions to the team's website and outreach initiatives. Won 2nd place Think Award at Leagues. I was also one of the team's two nominated Dean's List semifinalists.",
+        desc: "As a member of the Knightmare Robotics (15891) team, I co-led the programming subteam for the 2023-2024 Centerstage<sup>®</sup> challenge. I independently designed and tuned a computer vision algorithm using OpenCV for object detection, while working to tune the PID control system used by the drivetrain for accurate autonomous movement. <br><br> I also made contributions to the team's website and outreach initiatives. Won 2nd place Think Award at Leagues. I was also one of the team's two nominated Dean's List semifinalists.",
         icon: Titanium,
         when: "09/09/2023 - 02/25/2024",
         url: [["https://github.com/titanium-knights/knightmares-centerstage-2023", "Early Season Source"], ["https://github.com/titanium-knights/knightmares-centerstage-2024", "Final Robot Source"], ["https://titanium-knights.github.io", "Team Website"]],
@@ -65,11 +67,11 @@ export const projectInfo : Project[] = [
     {
         name: "Recoursive Website",
         desc: "As Co-Webmaster of Recoursive, an organization dedicated to providing free computer science education at local community centers, I worked to design a website to showcase the programs offered by the organization, increasing outreach to community centers and libraries.",
-        icon: GithubLogo,
+        icon: Recoursive,
         when: "08/08/2023 - 06/21/2024",
         url: [["https://recoursivetutoring.vercel.app/", "Live Site"],["https://github.com/recoursivetutoring/website", "Source"]],
-        tech: [Node, Javascript, ReactLogo],
-        techTitle: ["NodeJS", "JavaScript", "React"]
+        tech: [Node, CSSLogo, ReactLogo],
+        techTitle: ["NodeJS", "CSS", "React"]
     },
     {
         name: "BCACTF 4.0",
@@ -95,7 +97,7 @@ export const projectInfo : Project[] = [
         icon: GithubLogo,
         when: "07/07/2024 - Present",
         url: [["https://www.github.com/mud-ali", "Source"], ["https://mudasir.vercel.app/", "Homepage"]],
-        tech: [Node, NextJS, Tailwind],
-        techTitle: ["NodeJS", "NextJS", "TailwindCSS"]
+        tech: [Node, NextJS, Tailwind, MDXLogo],
+        techTitle: ["NodeJS", "NextJS", "TailwindCSS", "MDX"]
     },
 ]
