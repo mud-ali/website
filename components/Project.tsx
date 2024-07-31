@@ -35,7 +35,7 @@ export function Project(info: Project): ReactNode {
                     alt={`Icon for project: ${info.name}`}
                 />
             </div>
-            <div className="w-full sm:p-4 pt-4 sm:pb-0 px-2 border-0 border-red-600 flex flex-col justify-between">
+            <div className="w-full sm:p-4 pt-4 sm:pb-0 px-2 flex flex-col justify-between">
                 <div className="top flex w-full justify-between mb-6 sm:mb-0">
                     <div className="w-1/2 text-left sm:w-full">
                         {info.name}
@@ -49,7 +49,7 @@ export function Project(info: Project): ReactNode {
                     dangerouslySetInnerHTML={{ __html: parseUrls(info.desc) }}>
                 </div>
 
-                <div className="flex w-1/3 min-w-max mx-0 flex-row justify-left items-center mt-8 mb-2 border-0 border-red-600">
+                <div className="flex w-1/3 min-w-max mx-0 flex-row justify-left items-center mt-8 mb-2">
                     {
                         info.tech?.map((imageInfo, i)=>{
                             return (
@@ -59,20 +59,21 @@ export function Project(info: Project): ReactNode {
                                     alt={info.techTitle?.at(i) ?? ""}
                                     height={30}
                                     width={30}
-                                    className={`mx-3 border-0 border-green-400`}
+                                    className={`mx-3`}
                                 />
                             )
                         })
                     }
                 </div>
-                <div className="my-4 flex justify-start border-0 border-red-300">
+                <div className="my-4 flex justify-start">
                     {info.url.map((url, i) => {
                         return (
                             <a
                                 key={i}
                                 href={url[0]}
                                 target="_blank"
-                                className={`inline-block rounded-2xl bg-slate-700 px-3 py-1 text-blue-300 mx-2 hover:underline underline-offset-4
+                                className={`inline-block rounded-2xl bg-slate-700 px-3 py-1 text-blue-300 mx-2
+                                            hover:underline underline-offset-4 text-center
                                           hover:text-white hover:bg-slate-900 transition-colors duration-300`}
                             >
                                 {url[1]}
