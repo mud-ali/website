@@ -37,7 +37,7 @@ export default async function BlogPost(post: Blogpost) {
                 <div className="mdx-container">
                     <MDXRemote source={content} options={options}/>
                 </div>
-                <div className="flex pt-8 pb-6">
+                <div className="flex items-center justify-center pt-8 pb-6 flex-wrap">
                     {
                         post.tags.length > 0 && <p className="text-white">Tags: </p>
                     }
@@ -45,7 +45,7 @@ export default async function BlogPost(post: Blogpost) {
                     {
                         post.tags.map((tag, i) => {
                             return (
-                                <p key={i}>
+                                <p key={i} className="inline-block w-max whitespace-nowrap">
                                     <span className="ml-2 text-accent-hue hover:">{tag}</span>
                                     {i !== post.tags.length - 1 ? "," : ""}
                                 </p>

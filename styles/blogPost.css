@@ -1,10 +1,13 @@
 .mdx-container * {
     margin-bottom: 1rem;
+    overflow-wrap: break-word;
 }
 
 .mdx-container pre:has(code) {
     padding: 0.5rem 1rem;
     border-radius: 5px;
+    whitespace: pre-wrap;
+    overflow: scroll;
 }
 
 .mdx-container h1 {
@@ -17,4 +20,32 @@
 
 .mdx-container h3 {
     @apply text-xl
+}
+
+.mdx-container a {
+    @apply text-accent-hue underline underline-offset-4
+}
+
+.mdx-container ul, .mdx-container ol {
+    @apply ml-8
+}
+
+.mdx-container li {
+    @apply list-disc list-inside
+}
+
+.mdx-container div.triple-code-container {
+    @apply flex flex-col md:flex-row justify-around max-w-full
+}
+
+.mdx-container div.triple-code-container::first-child {
+    @apply ml-0
+}
+
+.mdx-container div.triple-code-container::last-child {
+    @apply mr-0
+}
+
+.mdx-container div.triple-code-container div {
+    @apply mx-6
 }
