@@ -1,0 +1,335 @@
+# EVM - Conditions
+
+Challenge Author: NoobMaster
+
+Description: So much maths... You need to find the value, in hex, that you need
+to send to make the contract STOP and not self destruct. Wrap the hex in `n00bz{}`.
+If the correct answer is 9999, the flag is `n00bz{0x270f}`.
+
+Attachments: 5f600f607002610258525f60056096046090525f600760090A61FFFA526105396126aa18620bfabf52600361fffa5102620bfabf51013461025851600402016090510114604857ff00
+
+# Solution
+
+This approach comes from not actually knowing anything about EVM or blockchain.
+As such, I basically treated this as a reverse engineering challenge. 
+
+Due to the [previous](/evm-basics) challenge, I immediately decided to decompile
+this using the [Dedaub decompiler](https://app.dedaub.com/decompile).
+
+The assembly-like representation of this code is:
+
+```assembly
+    0x0: PUSH0     
+    0x1: PUSH1     0xf
+    0x3: PUSH1     0x70
+    0x5: MUL       
+    0x6: PUSH2     0x258
+    0x9: MSTORE    
+    0xa: PUSH0     
+    0xb: PUSH1     0x5
+    0xd: PUSH1     0x96
+    0xf: DIV       
+   0x10: PUSH1     0x90
+   0x12: MSTORE    
+   0x13: PUSH0     
+   0x14: PUSH1     0x7
+   0x16: PUSH1     0x9
+   0x18: EXP       
+   0x19: PUSH2     0xfffa
+   0x1c: MSTORE    
+   0x1d: PUSH2     0x539
+   0x20: PUSH2     0x26aa
+   0x23: XOR       
+   0x24: PUSH3     0xbfabf
+   0x28: MSTORE    
+   0x29: PUSH1     0x3
+   0x2b: PUSH2     0xfffa
+   0x2e: MLOAD     
+   0x2f: MUL       
+   0x30: PUSH3     0xbfabf
+   0x34: MLOAD     
+   0x35: ADD       
+   0x36: CALLVALUE 
+   0x37: PUSH2     0x258
+   0x3a: MLOAD     
+   0x3b: PUSH1     0x4
+   0x3d: MUL       
+   0x3e: ADD       
+   0x3f: PUSH1     0x90
+   0x41: MLOAD     
+   0x42: ADD       
+   0x43: EQ        
+   0x44: PUSH1     0x48
+   0x46: JUMPI     
+   0x47: SELFDESTRUCT
+   0x48: STOP       
+``` 
+
+Each line contains an address for the instruction, followed by an opcode
+and, optionally an argument (really only for the PUSH opcodes).
+
+This language revolves around a stack, so most opcodes use the top items
+on the stack as their arguments.
+
+This challenge also makes use of the memory, which is a separate structure
+in the EVM language. The MSTORE opcode stores a value in memory, and the MLOAD
+opcode loads a value from memory.
+
+Using the [Ethereum yellow paper](https://ethereum.github.io/yellowpaper/paper.pdf),
+I was able to understand the function of each opcode. See Appendix H.2 for the
+full list with explanations.
+
+This one is a bit more complex than the previous challenge, but the goal is the same.
+We want to reach the STOP opcode without going through the SELFDESTRUCT opcode. We 
+need to figure out what value is inputted with the CALLVALUE opcode to make the EQ
+opcode return 1, so that the JUMPI opcode will jump to the STOP opcode.
+
+Due to the length of this challenge, I implemented a little interpreter in Python
+to help me manage the stack and memory until I reached the point where an input
+was needed.
+
+```python
+code = """0x0: PUSH0 
+0x1: PUSH1 0xf
+0x3: PUSH1 0x70
+0x5: MUL 
+0x6: PUSH2 0x258
+0x9: MSTORE 
+0xa: PUSH0 
+0xb: PUSH1 0x5
+0xd: PUSH1 0x96
+0xf: DIV 
+0x10: PUSH1 0x90
+0x12: MSTORE 
+0x13: PUSH0 
+0x14: PUSH1 0x7
+0x16: PUSH1 0x9
+0x18: EXP 
+0x19: PUSH2 0xfffa
+0x1c: MSTORE 
+0x1d: PUSH2 0x539
+0x20: PUSH2 0x26aa
+0x23: XOR 
+0x24: PUSH3 0xbfabf
+0x28: MSTORE 
+0x29: PUSH1 0x3
+0x2b: PUSH2 0xfffa
+0x2e: MLOAD 
+0x2f: MUL 
+0x30: PUSH3 0xbfabf
+0x34: MLOAD 
+0x35: ADD 
+0x36: CALLVALUE
+0x37: PUSH2 0x258
+0x3a: MLOAD 
+0x3b: PUSH1 0x4
+0x3d: MUL 
+0x3e: ADD 
+0x3f: PUSH1 0x90
+0x41: MLOAD 
+0x42: ADD 
+0x43: EQ 
+0x44: PUSH1 0x48
+0x46: JUMPI 
+0x47: SELFDESTRUCT
+0x48: STOP""".split("\n")
+
+prog_lines = {}
+
+stack = []
+memory = {}
+
+# create a dictionary of the program, mapping instruction addresses to opcodes
+for line in code:
+    if line:
+        line = line.split(": ")
+        prog_lines[int(line[0], 16)] = line[1].strip()
+
+# quick debug function to print stack with decimal and hex values
+def stack_print():
+    print("Stack: ", [str(x) + "=" + hex(x) for x in stack])
+
+# function to run a single instruction
+# returns the address of the next instruction to run
+def run(address : int, op: str) -> int:
+    # input() # uncomment this line to step through the program line by line
+
+    global stack
+    global memory
+    global storage
+
+    if op=="PUSH0":
+        stack.append(0)
+
+    elif op.startswith("PUSH"):
+        stack.append(int(op.split(" ")[1], 16))
+
+    elif op=="MSTORE":
+        mem_addr = stack.pop()
+        val = stack.pop()
+        memory[mem_addr] = val
+
+    elif op=="MLOAD":
+        mem_addr = stack.pop()
+        stack.append(memory[mem_addr])
+
+    elif op=="ADD":
+        stack.append(stack.pop() + stack.pop())
+
+    elif op=="SUB":
+        stack.append(stack.pop() - stack.pop())
+
+    elif op=="MUL":
+        stack.append(stack.pop() * stack.pop())
+
+    elif op=="DIV":
+        stack.append(stack.pop() // stack.pop())
+
+    elif op=="EXP":
+        stack.append(stack.pop() ** stack.pop())
+
+    elif op=="XOR":
+        stack.append(stack.pop() ^ stack.pop())
+
+    elif op=="CALLVALUE":
+        stack.append(int(input("Enter value: "), 16))
+
+    elif op=="JUMPI":
+        go = stack.pop()
+        if stack.pop() != 0:
+            return go
+        
+    elif op=="EQ":
+        stack.append(1 if stack.pop() == stack.pop() else 0)
+
+    elif op=="SELFDESTRUCT":
+        print("failed")
+        exit(1)
+
+    elif op=="STOP":
+        print("success")
+        exit(0)
+    
+    # if no jump occurred, go to the next instruction
+    return address + 1
+
+# what instruction we are currently on
+program_counter = 0
+
+# loop until we reach the greatest instruction address
+while program_counter <= max(prog_lines.keys()):
+    # skip over instruction addresses that don't exist 
+    # (for some reason the addresses are not contiguous)
+    while program_counter not in prog_lines.keys():
+        program_counter += 1
+        continue
+
+    # print the current instruction and run it
+    op = prog_lines[program_counter]
+    print(hex(program_counter), op)
+    program_counter = run(program_counter, op)
+
+    # print the current state of the stack and memory
+    print(memory)
+    stack_print()
+
+```
+
+This runs the program, and when it reaches the CALLVALUE opcode, it will prompt
+the user.
+
+```
+0x35 ADD
+{600: 1680, 144: 30, 65530: 4782969, 785087: 9107}
+Stack:  ['0=0x0', '0=0x0', '0=0x0', '14358014=0xdb15fe']
+0x36 CALLVALUE
+Enter value: |
+```
+
+I used a python dictionary to store the memory values, so the key is the address
+in memory and the value is the value stored there. The stack is just a list of
+values, with the top being the end of the list.
+
+We can use the current state of the stack and memory to manually step through the
+rest of the opcodes. Let X be the value we inputted with CALLVALUE.
+
+<div className="triple-code-container">
+    <div>
+        <div className="text-center">Bytecode</div>
+
+        ```python
+        0x35: ADD
+        0x36: CALLVALUE
+        0x37: PUSH2 0x258
+        0x3a: MLOAD 
+        0x3b: PUSH1 0x4
+        0x3d: MUL 
+        0x3e: ADD 
+        0x3f: PUSH1 0x90
+        0x41: MLOAD 
+        0x42: ADD 
+        0x43: EQ 
+        0x44: PUSH1 0x48
+        0x46: JUMPI 
+        0x47: SELFDESTRUCT
+        0x48: STOP
+        ```
+    </div>
+    <div>
+        <div className="text-center">
+            The Stack 
+            (ignoring leading zeros)
+        </div>
+
+        ```python
+        0x35: [0xdb15fe] 
+        0x36: [0xdb15fe, X] 
+        0x37: [0xdb15fe, X, 0x258] 
+        0x3a: [0xdb15fe, X, 0x690] 
+        0x3b: [0xdb15fe, X, 0x690, 0x4] 
+        0x3d: [0xdb15fe, X, 0x1a40] 
+        0x3e: [0xdb15fe, X + 0x1a40] 
+        0x3f: [0xdb15fe, X + 0x1a40, 0x90] 
+        0x41: [0xdb15fe, X + 0x1a40, 0x1e] 
+        0x42: [0xdb15fe, X + 0x1a40 + 0x1e] 
+        0x43: [int(0xdb15fe == X + 0x1a40 + 0x1e)] 
+        0x44: [int(0xdb15fe == X + 0x1a40 + 0x1e), 0x48] 
+        0x46: [] 
+        ```
+    </div>
+    <div>
+        <div className="text-center">Memory</div>
+
+        ```python
+        0x29-0x48: {
+            0x90: 0x1e,
+            0x258: 0x690,
+            0xfffa: 0x48fb79,
+            0xbfabf: 0x2393
+        }
+        ```
+    </div>
+</div>
+
+As we can see, we need to input some value `X` such that `0xdb15fe == X + 0x1a40 + 0x1e`.
+
+```python
+>>> hex(0xdb15fe - (0x1a40 + 0x1e))
+'0xdafba0'
+```
+
+If you input `0xdafba0` into the script when prompted, the program will reach the
+STOP opcode and print "success".
+
+<details>
+
+<summary>Flag</summary>
+
+Now, we just wrap it in the flag format:
+
+`n00bz{0xdafba0}`
+
+I definitely didn't spend thirty minutes debugging cuz I had the flag format wrong...
+😭
+
+</details>

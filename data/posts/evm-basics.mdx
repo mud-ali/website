@@ -1,0 +1,106 @@
+# EVM - The Basics
+
+Challenge Author: NoobMaster
+
+Description: I have some EVM runtime bytecode, whatever that means. You need to
+find the value, in hex, that you need to send to make the contract STOP and not
+self destruct. Wrap the hex in `n00bz{}`. If the correct answer is 9999, the flag
+is `n00bz{0x270f}`.
+
+Attachments: 5f346113370265fdc29ff358a314601257ff00
+
+# Solution
+
+This approach comes from not actually knowing anything about EVM or blockchain.
+As such, I basically treated this as a reverse engineering challenge. 
+
+The use of the word "bytecode" and the search results on Google for "EVM 
+runtime bytecode" made me decide to look for a decompiler to put the hex value 
+into.
+
+Here's the one I used [Dedaub decompiler](https://app.dedaub.com/decompile).
+
+The assembly-like representation of this code is:
+
+```assembly
+    0x0: PUSH0     
+    0x1: CALLVALUE 
+    0x2: PUSH2 0x1337
+    0x5: MUL       
+    0x6: PUSH6 0xfdc29ff358a3
+    0xd: EQ        
+    0xe: PUSH1 0x12
+   0x10: JUMPI     
+   0x11: SELFDESTRUCT
+   0x12: STOP      
+``` 
+
+Each line contains an address for the instruction, followed by an opcode
+and, optionally an argument (really only for the PUSH opcodes).
+
+This language revolves around a stack, so most opcodes use the top items
+on the stack as their arguments.
+
+I also found, with a little bit of searching, [the official Ethereum yellow
+paper](https://ethereum.github.io/yellowpaper/paper.pdf), with a formal 
+outline of each opcode (See Appendix H.2, about page 33). This, and a little help from
+[Stack Overflow](https://stackoverflow.com/questions/44602539/how-does-the-opcode-jump-work-in-the-evm-stack)
+and ChatGPT, allowed me to easily understand each opcode, despite ChatGPT
+blatantly deceiving me a few times.
+
+The relevant opcodes are:
+- PUSH0: Push 0 onto the stack
+- PUSH*n*: Push the following *n* bytes onto the stack
+- CALLVALUE: basically an input function as far as we are concerned
+- MUL: Multiply the top two stack values
+- EQ: Check if the top two stack values are equal. If so, replace them with a 1,
+  otherwise replace them with a 0.
+- JUMPI: Pop the top two stack values. If the second value is non-zero, jump to
+  the first value. Otherwise, proceed to the next instruction
+
+The challenge tells us that we want to reach the STOP opcode without going
+through the SELFDESTRUCT opcode. This means that we need to make the EQ opcode
+return 1, so that the JUMPI opcode *will* jump to the STOP opcode.
+<br />
+Let's follow the stack values through the code (the top of the stack is shown to the right):
+
+```python
+    0x0: PUSH0 # push a 0 onto the stack
+        [ 0 ]
+    0x1: CALLVALUE # input into the transaction, i.e. the value we are trying to solve for
+        [ 0, input ]
+    0x2: PUSH2 0x1337 # push 0x1337 onto the stack
+        [ 0, input, 0x1337 ]
+    0x5: MUL # pop the two top values off the stack, multiply them, and push the result on
+        [ 0, input * 0x1337 ]
+    0x6: PUSH6 0xfdc29ff358a3 # push 0xfdc29ff358a3 onto the stack
+        [ 0, input * 0x1337, 0xfdc29ff358a3 ]
+    0xd: EQ # pop the two top values off the stack, check if they are equal, and push the result on
+        [ 0, input * 0x1337 == 0xfdc29ff358a3 ]
+    0xe: PUSH1 0x12 # push 0x12 onto the stack
+        [ 0, input * 0x1337 == 0xfdc29ff358a3, 0x12 ]
+   0x10: JUMPI  # pop the last value off the stack, using it as an instruction pointer. Jump to it
+        [ 0 ]   # if the next value popped off is a 1
+   0x11: SELFDESTRUCT
+   0x12: STOP      
+``` 
+
+By labelling the stack like this, we can see that the STOP opcode will only be
+jumped to if the value of `input` is such that `input * 0x1337 == 0xfdc29ff358a3`.
+
+This is simple enough to solve (use python instead of searching for hex calculators):
+
+```python
+>>> print(hex(0xfdc29ff358a3 // 0x1337))
+0xd34db33f5
+```
+
+Now, we just wrap it in the flag format:
+
+<details>
+
+<summary>Flag</summary>
+
+`n00bz{0xd34db33f5}`
+
+</details>
