@@ -23,7 +23,7 @@ export default function Home() {
                     {
                         contactMethodsInfo.map(method => {
                             return (
-                                <ContactCard {...method} />
+                                <ContactCard {...method} key={method.id}/>
                             )
                         })
                     }

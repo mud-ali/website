@@ -28,6 +28,15 @@ import Titanium from "@/assets/titaniumknights.png"
 import type { Project } from "@/types/project"
 
 export const projectInfo : Project[] = [
+    // {
+    //     name: "First Tech Challenge - Into The Deep",
+    //     desc: "",
+    //     icon: Titanium,
+    //     when: "09/09/2023 - 02/25/2024",
+    //     url: [["https://github.com/titanium-knights/knightmares-centerstage-2023", "Early Season Source"], ["https://github.com/titanium-knights/knightmares-centerstage-2024", "Final Robot Source"], ["https://titanium-knights.github.io", "Team Website"]],
+    //     tech: [Java, Kotlin, Roadrunner, OpenCV],
+    //     techTitle: ["Java", "Kotlin", "Roadrunner", "OpenCV"]
+    // },
     {
         name: "BCA NewTab",
         desc: "A browser extension that scrapes the PowerSchool Student Information System used at BCA to create a custom schedule page on the user's new tab.",

@@ -9,12 +9,4 @@ export const headerLinkInfo : headerLinkProps[] = [
         url: "/projects",
         display: "Projects"
     },
-    {
-        url: "/blog",
-        display: "Blog"
-    },
-    {
-        url: "/resume",
-        display: "Resume"
-    },
 ]

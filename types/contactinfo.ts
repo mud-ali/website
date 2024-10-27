@@ -5,4 +5,5 @@ export type ContactInfo = {
     url: string | undefined,
     urlText: string | undefined,
     imageLink: StaticImageData,
+    id: number
 }

@@ -7,5 +7,6 @@ export type Project = {
     when: string,
     url: string[][],
     tech?: StaticImageData[],
-    techTitle?: string[]
+    techTitle?: string[],
+    id?: number
 }
