@@ -8,7 +8,8 @@ export const blogPostsList : Blogpost[] = [
         date: "7/29/2024",
         tags: ["test", "hello"],
         content: "one.mdx"
-    },
+    }
+    //,
     // {
     //     title: "EVM - The Basics (Blockchain)",
     //     description: "CTF writeup for n00bzCTF 2024",
