@@ -60,6 +60,7 @@ export function Project(info: Project): ReactNode {
                                     height={30}
                                     width={30}
                                     className={`mx-3`}
+                                    key={i}
                                 />
                             )
                         })

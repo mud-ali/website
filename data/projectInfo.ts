@@ -28,20 +28,20 @@ import Titanium from "@/assets/titaniumknights.png"
 import type { Project } from "@/types/project"
 
 export const projectInfo : Project[] = [
-    // {
-    //     name: "First Tech Challenge - Into The Deep",
-    //     desc: "",
-    //     icon: Titanium,
-    //     when: "09/09/2023 - 02/25/2024",
-    //     url: [["https://github.com/titanium-knights/knightmares-centerstage-2023", "Early Season Source"], ["https://github.com/titanium-knights/knightmares-centerstage-2024", "Final Robot Source"], ["https://titanium-knights.github.io", "Team Website"]],
-    //     tech: [Java, Kotlin, Roadrunner, OpenCV],
-    //     techTitle: ["Java", "Kotlin", "Roadrunner", "OpenCV"]
-    // },
+    {
+        name: "First Tech Challenge - Into The Deep",
+        desc: "Programming Lead for FTC team 15887. Implement subsystem control, finite state machine, and path-based autonomous code.",
+        icon: Titanium,
+        when: "09/07/2024 - Present",
+        url: [["https://github.com/titanium-knights/all-knighters-into-the-deep-24-25", "Source Code"], ["https://titanium-knights.github.io", "Team Website"]],
+        tech: [Java, Kotlin, Roadrunner, OpenCV],
+        techTitle: ["Java", "Kotlin", "Roadrunner", "OpenCV"]
+    },
     {
         name: "BCA NewTab",
         desc: "A browser extension that scrapes the PowerSchool Student Information System used at BCA to create a custom schedule page on the user's new tab.",
         icon: NewTabExt,
-        when: "07/09/2024 - Present",
+        when: "07/09/2024 - 12/31/2024",
         url: [],
         tech: [Node, Javascript, Handlebars, Firefox, Chrome],
         techTitle: ["NodeJS", "JavaScript", "Handlebars", "Firefox Addons API", "Chrome Extensions API"]
