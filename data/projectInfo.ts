@@ -1,5 +1,6 @@
 import BCACTFIV from "@/assets/BCACTF_IV.png"
 import BCACTFV from "@/assets/BCACTF_V.png"
+import BCACTFVI from "@/assets/BCACTF_VI.png"
 import OpenCV from "@/assets/OpenCV.png"
 import AcadSciLogo from "@/assets/acadsci.png"
 import Chrome from "@/assets/chrome.svg"
@@ -22,20 +23,31 @@ import Python from "@/assets/python.svg"
 import ReactLogo from "@/assets/react.svg"
 import Recoursive from "@/assets/recoursive.png"
 import Roadrunner from "@/assets/roadrunner.png"
+import PedroPathing from "@/assets/pedropathing.png"
 import Rust from "@/assets/rust.svg"
+import C from "@/assets/C_lang.png"
 import Tailwind from "@/assets/tailwind.svg"
 import Titanium from "@/assets/titaniumknights.png"
 import type { Project } from "@/types/project"
 
 export const projectInfo : Project[] = [
     {
+        name: "BCACTF 6.0",
+        desc: "Admin and Challenge Author for BCACTF 6.0, my high school CTF (capture the flag) club's annual cybersecurity competition.",
+        icon: BCACTFVI,
+        when: "06/20/2025 - 06/23/2025",
+        url: [["https://github.com/BCACTF/bcactf-6.0", "Source"], ["https://6.bcactf.com/", "Landing Page"]],
+        tech: [Docker, Git, Python, C],
+        techTitle: ["Docker", "Git", "Python", "C"]
+    },
+    {
         name: "First Tech Challenge - Into The Deep",
-        desc: "Programming Lead for FTC team 15887. Implement subsystem control, finite state machine, and path-based autonomous code.",
+        desc: "Programming Lead for FTC team 15887. Implement subsystem control, finite state machines, computer vision, and autonomous path following. Maintained website and updated sponsor and member information.",
         icon: Titanium,
-        when: "09/07/2024 - Present",
+        when: "09/07/2024 - 06/25/2025",
         url: [["https://github.com/titanium-knights/all-knighters-into-the-deep-24-25", "Source Code"], ["https://titanium-knights.github.io", "Team Website"]],
-        tech: [Java, Kotlin, Roadrunner, OpenCV],
-        techTitle: ["Java", "Kotlin", "Roadrunner", "OpenCV"]
+        tech: [Java, Kotlin, PedroPathing, OpenCV],
+        techTitle: ["Java", "Kotlin", "PedroPathing", "OpenCV"]
     },
     {
         name: "BCA NewTab",
@@ -57,7 +69,7 @@ export const projectInfo : Project[] = [
     },
     {
         name: "First Tech Challenge - Centerstage",
-        desc: "As a member of the Knightmare Robotics (15891) team, I co-led the programming subteam for the 2023-2024 Centerstage<sup>®</sup> challenge. I independently designed and tuned a computer vision algorithm using OpenCV for object detection, while working to tune the PID control system used by the drivetrain for accurate autonomous movement. <br><br> I also made contributions to the team's website and outreach initiatives. Won 2nd place Think Award at Leagues. I was also one of the team's two nominated Dean's List semifinalists.",
+        desc: "As a member of the Knightmare Robotics (15891) team, I co-led the programming subteam for the 2023-2024 Centerstage<sup>®</sup> challenge. Designed and tuned OpenCV algorithm and PID coefficients for autonomous path following. <br><br> I also made contributions to the team's website and several outreach initiatives. Won 2nd place Think Award at Leagues. I was also one of the team's two nominated Dean's List semifinalists.",
         icon: Titanium,
         when: "09/09/2023 - 02/25/2024",
         url: [["https://github.com/titanium-knights/knightmares-centerstage-2023", "Early Season Source"], ["https://github.com/titanium-knights/knightmares-centerstage-2024", "Final Robot Source"], ["https://titanium-knights.github.io", "Team Website"]],
@@ -66,9 +78,9 @@ export const projectInfo : Project[] = [
     },
     {
         name: "Academy Scientific Website",
-        desc: "A website to display scientific articles published by the Academy Scientific, the only scientific journal at the Bergen County Academies.",
+        desc: "A website to display scientific articles published by the Academy Scientific, the student-run scientific journal of the Bergen County Academies.",
         icon: AcadSciLogo,
-        when: "01/23/2024 - Present",
+        when: "01/23/2024 - 09/03/2024",
         url: [["https://academyscientific.vercel.app/", "Website"]],
         tech: [NextJS, Node, Tailwind, MDXLogo],
         techTitle: ["NextJS", "NodeJS", "TailwindCSS", "MDX"]
@@ -99,14 +111,5 @@ export const projectInfo : Project[] = [
         url: [["https://drive.google.com/file/d/1CWHDXrx_E4XXwPtvRncYPMWOEFyYqSBa/view?usp=drive_link", "Render"], ["https://drive.google.com/file/d/1gCX30wZU4HCbwMdHRrbLLThYUo9kNl3G/view?usp=drive_link","Picture"], ["https://github.com/titanium-knights/team-a-2022-2023","Code"]],
         tech: [Inventor, Java, Roadrunner],
         techTitle: ["Autodesk Inventor Professional", "Java", "Roadrunner", ]
-    },
-    {
-        name: "Personal Website",
-        desc: "Designed personal website using NextJS and TailwindCSS. Implemented blog feature from scratch using MDX. Check out the source below or check out the other pages on this site.",
-        icon: GithubLogo,
-        when: "07/07/2024 - Present",
-        url: [["https://www.github.com/mud-ali", "Source"], ["https://mudasir.vercel.app/", "Homepage"]],
-        tech: [Node, NextJS, Tailwind, MDXLogo],
-        techTitle: ["NodeJS", "NextJS", "TailwindCSS", "MDX"]
-    },
+    }, 
 ]
