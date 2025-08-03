@@ -17,9 +17,9 @@ export default function Home() {
                                  w-11/12 lg:w-7/12 leading-loose
                                  shadow-[0px_0px_15px_5px_rgba(185,185,177,1)]`
                                  }>
-                    Hi, I'm Mudasir, and I'm currently studying engineering at the Bergen County Academies in New Jersey. I'm passionate about everything from electrical engineering and robotics to web development and cybersecurity.
+                    Hi, I'm Mudasir, and I'm currently studying electrical engineering at the New Jersey Institute of Technology (NJIT). I'm passionate about robotics, embedded technology, IoT, and cybersecurity. 
                 </div>
-                <div className="contact-card-array flex flex-row items-center mt-8 sm:mt-8 justify-around w-1/2 mb-56">
+                <div className="contact-card-array flex flex-row items-center mt-8 justify-around min-w-full sm:w-1/2 mb-56">
                     {
                         contactMethodsInfo.map(method => {
                             return (
