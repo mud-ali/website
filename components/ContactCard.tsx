@@ -6,7 +6,7 @@ export function ContactCard(info: ContactInfo): ReactNode {
     return (
         <div
             className={
-                `w-1/5 lg:w-1/12 break-word flex-none aspect-square mx-4 mt-8 sm:mb-16 px-2 box-content
+                `w-1/5 sm:w-1/12 break-word flex-none aspect-square mx-4 mt-8 sm:mb-16 px-2 box-content
                 rounded-2xl flex flex-col items-center justify-center`
             }
         >
