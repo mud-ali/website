@@ -22,7 +22,7 @@ export function PostPreview(info: Blogpost): ReactNode {
                 </div>
                 
                 {info.description}
-                <div className="flex pt-8 pb-0">
+                <div className="flex flex-wrap pt-8 pb-0 ">
                     {
                         info.tags.length > 0 && <p className="text-white">Tags: </p>
                     }

@@ -17,7 +17,7 @@ export default async function BlogPost(post: Blogpost) {
     let content;
     try {
         let filePath = path.join(process.cwd(), `/data/posts/${post.content}`)
-        content = fs.readFileSync(filePath);
+        content = fs.readFileSync(filePath, "utf-8");
     } catch (err) {
         console.error(err);
         content = post.content;

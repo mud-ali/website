@@ -35,7 +35,7 @@
 }
 
 .mdx-container div.triple-code-container {
-    @apply flex flex-col md:flex-row justify-around max-w-full
+    @apply flex flex-col justify-around max-w-full
 }
 
 .mdx-container div.triple-code-container::first-child {
