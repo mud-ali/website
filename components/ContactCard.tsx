@@ -6,11 +6,11 @@ export function ContactCard(info: ContactInfo): ReactNode {
     return (
         <div
             className={
-                `w-1/5 sm:w-1/12 break-word flex-none aspect-square mx-4 mt-8 sm:mb-16 px-2 box-content
+                `w-1/5 break-word flex-none aspect-square mx-4 mt-8 sm:mb-16 px-2 box-content
                 rounded-2xl flex flex-col items-center justify-center`
             }
         >
-            <div className="w-full mx-auto text-center transition-all hover:w-10/12 duration-200" >
+            <div className="w-2/3 mx-auto text-center transition-all hover:w-7/12 duration-200" >
                 <a href={info.url} title={info.urlText} target="_blank">
                     <Image className="w-full" src={info.imageLink} alt={info.info} />
                 </a>
